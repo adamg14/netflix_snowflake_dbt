@@ -1,0 +1,6 @@
+CREATE OR REPLACE STAGE netflix_data_stage
+URL = 's3://netflix-data-aw'
+CREDENTIALS = (
+    AWS_KEY_ID = *IAM ACCESS KEY*
+    AWS_SECRET_KEY = *IAM SECRET ACCESS KEY*
+);
