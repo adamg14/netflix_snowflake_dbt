@@ -1,0 +1,13 @@
+version: 2
+
+sources:
+  - name: raw_data
+    database: NETFLIX_DATA
+    schema: RAW_MOVIE_DATA
+    tables:
+      - name: RAW_LINKS
+      - name: RAW_MOVIES
+      - name: RAW_RATINGS
+      - name: RAW_SCORES
+      - name: RAW_TAG
+      - name: RAW_TAG_LOOKUP
