@@ -9,5 +9,5 @@ sources:
       - name: RAW_MOVIES
       - name: RAW_RATINGS
       - name: RAW_SCORES
-      - name: RAW_TAG
+      - name: RAW_TAGS
       - name: RAW_TAG_LOOKUP
