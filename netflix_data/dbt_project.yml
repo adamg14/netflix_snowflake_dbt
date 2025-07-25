@@ -37,4 +37,7 @@ models:
       +materialized: raw
     staging:
       +schema: STAGING
+      +materialized: view
+    dim_fact:
+      +schema: DIMENSION
       +materialized: table

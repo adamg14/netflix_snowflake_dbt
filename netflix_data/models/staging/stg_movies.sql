@@ -10,7 +10,6 @@ split_genres AS (
         title,
         TRIM(genres) AS genre
     FROM raw_movies,
-    LATERAL FLATTEN(INPUT => SPLIT(genres, '|')) AS genre
 )
 
 SELECT * FROM split_genres

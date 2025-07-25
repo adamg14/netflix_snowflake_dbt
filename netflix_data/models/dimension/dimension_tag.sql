@@ -1,0 +1,20 @@
+-- get the new key from the fact table
+WITH dimension_tag AS (
+    SELECT
+        *
+    FROM {{ ref("stg_tags")}}
+)
+
+WITH fact_user AS (
+    SELECT
+        *
+    FROM {{ ref("fact_user")}}
+)
+
+SELECT
+    -- *** select the new key from the fact table
+    dimension_tag.tag_name,
+FROM fact_user
+JOIN dimension_tag
+ON fact_user.user_id = dimension_tag.user_id
+AND fact_user.movie_id = dimension_tag.movie_id
