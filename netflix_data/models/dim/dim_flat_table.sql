@@ -1,3 +1,4 @@
+-- not directly built in the model but can reference it as a CTE to build other models
 {{ 
     config(
         materialized='ephemeral'
