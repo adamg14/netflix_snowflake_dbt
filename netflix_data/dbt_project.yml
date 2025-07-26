@@ -39,7 +39,7 @@ models:
       +materialized: view
     dim:
       +schema: DIMENSION
-      +materialized: incremental
+      +materialized: table
     fct:
       +schema: FACT
-      +materialized: incremental
+      +materialized: table

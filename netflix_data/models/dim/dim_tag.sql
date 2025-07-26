@@ -12,7 +12,6 @@ fact_user AS (
 )
 
 SELECT
-    -- *** select the new key from the fact table
     fact_user.user_id,
     fact_user.movie_id,
     dimension_tag.tag_name,
