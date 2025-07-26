@@ -6,6 +6,7 @@ sources:
     schema: RAW_MOVIE_DATA
     tables:
       - name: RAW_LINKS
+        # identifier: r_links
       - name: RAW_MOVIES
       - name: RAW_RATINGS
       - name: RAW_SCORES
