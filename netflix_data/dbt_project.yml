@@ -33,13 +33,13 @@ models:
     # Config indicated by + and applies to all files under models/example/
     raw:
       +schema: RAW_MOVIE_DATA
-      +materialized: raw
+      +materialized: table
     staging:
       +schema: STAGING
       +materialized: view
     dim:
       +schema: DIMENSION
-      +materialized: table
+      +materialized: incremental
     fct:
       +schema: FACT
-      +materialized: table
+      +materialized: incremental
