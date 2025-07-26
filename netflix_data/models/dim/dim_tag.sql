@@ -3,9 +3,9 @@ WITH dimension_tag AS (
     SELECT
         *
     FROM {{ ref("stg_tags")}}
-)
+),
 
-WITH fact_user AS (
+fact_user AS (
     SELECT
         *
     FROM {{ ref("fact_user")}}
@@ -13,7 +13,10 @@ WITH fact_user AS (
 
 SELECT
     -- *** select the new key from the fact table
+    fact_user.user_id,
+    fact_user.movie_id,
     dimension_tag.tag_name,
+    dimension_tag.time_stamp
 FROM fact_user
 JOIN dimension_tag
 ON fact_user.user_id = dimension_tag.user_id

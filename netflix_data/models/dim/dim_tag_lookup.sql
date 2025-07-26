@@ -3,5 +3,7 @@ WITH tag_lookup AS (
     FROM {{ ref('stg_tag_lookup')}}
 )
 
-SELECT *
+SELECT 
+    tag_id,
+    TRIM(INITCAP(tag_name)) AS tag_name
 FROM tag_lookup

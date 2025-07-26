@@ -9,7 +9,7 @@ ratings_table AS (
     SELECT
         user_id,
         movie_id
-    FROM {{ ref("staging") }}
+    FROM {{ ref("stg_ratings") }}
 ),
 
 movie_user_pairs AS (
@@ -24,4 +24,4 @@ SELECT
     user_id,
     movie_id,
      {{ dbt_utils.generate_surrogate_key(['user_id', 'movie_id']) }} AS user_movie_id
-FROM 
+FROM movie_user_pairs
