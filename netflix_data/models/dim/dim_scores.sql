@@ -5,5 +5,9 @@ WITH movie_scores AS (
         {{ ref("stg_scores")}}
 )
 
-SELECT *
+SELECT 
+    movie_id,
+    tag_id,
+    ROUND(relevance, 4) AS relevance
 FROM movie_scores
+WHERE relevance > 0

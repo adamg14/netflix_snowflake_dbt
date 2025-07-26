@@ -8,7 +8,7 @@ WITH dimension_tag AS (
 fact_user AS (
     SELECT
         *
-    FROM {{ ref("fact_user")}}
+    FROM {{ ref("fct_user")}}
 )
 
 SELECT

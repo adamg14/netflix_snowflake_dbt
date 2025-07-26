@@ -7,7 +7,7 @@ WITH ratings AS (
 user_fact_table AS (
     SELECT
         *
-    FROM {{ ref('fact_user') }}
+    FROM {{ ref('fct_user') }}
 )
 
 SELECT
