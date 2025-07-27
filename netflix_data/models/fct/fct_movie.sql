@@ -6,5 +6,5 @@ WITH movies AS (
 SELECT
     movie_id,
     INITCAP(TRIM(title)) AS title,
-    SPLIT(genre, '|') AS genre
+    SPLIT(genres, '|') AS genres
 FROM movies

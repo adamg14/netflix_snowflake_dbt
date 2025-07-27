@@ -4,12 +4,16 @@ WITH raw_movies AS (
     FROM {{ source('raw_data', 'RAW_MOVIES') }}
 ),
 
-split_genres AS (
-    SELECT
-        movie_id,
-        title,
-        TRIM(genres) AS genre
-    FROM raw_movies,
+unique_movie_titles AS (
+    SELECT DISTINCT movie_id, title
+    FROM raw_movies
 )
 
-SELECT * FROM split_genres
+-- removing duplicate movie titles
+SELECT
+    unique_movie_titles.movie_id AS movie_id,
+    unique_movie_titles.title AS title,
+    raw_movies.genres AS genres
+FROM unique_movie_titles
+JOIN NETFLIX_DATA.RAW_MOVIE_DATA.raw_movies raw_movies
+ON unique_movie_titles.movie_id = raw_movies.movie_id

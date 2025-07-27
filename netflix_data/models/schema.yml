@@ -1,17 +1,15 @@
 models:
-  - name: dim_links
-    description: Dimension table that contains the link to review websites for each movie record.
+  - name: stg_movies
+    description: Dimension table that contains the all the movies within the database and some metadata.
     columns:
       - name: movie_id
         tests:
           - not_null
           - unique
-      - name: imdb_id
+      - name: title
         tests:
           - not_null
-          - unique
-      - name: tmdb_id
+      - name: genres
         tests:
           - not_null
-          - unique
       
