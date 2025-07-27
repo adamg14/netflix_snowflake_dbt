@@ -1,6 +1,6 @@
 models:
   - name: stg_movies
-    description: Dimension table that contains the all the movies within the database and some metadata.
+    description: Staging table that contains the all the movies within the database and some metadata.
     columns:
       - name: movie_id
         tests:
@@ -12,4 +12,76 @@ models:
       - name: genres
         tests:
           - not_null
+  
+  - name: stg_links
+    description: Staging table that contains all the movies within the database, alongside the links to review websites for that movie
+    columns:
+      - name: movie_id
+        tests:
+          - not_null
+          - unique
+      - name: imdb_id
+        tests:
+          - not_null
+          - unique
+      - name: tmdb_id
+        tests:
+        - unique
+        - not_null
+  
+  - name: stg_ratings
+    description: Staging table that contains the user, the movie, the rating assigned to the movie by the user and the date of this rating.
+    columns:
+      - name: user_id
+        tests:
+          - not_null
+      - name: movie_id
+        tests:
+          - not_null
+      - name: rating
+        tests:
+          - not_null
+      - name: time_stamp
+        tests:
+          - not_null
+  
+  - name: stg_scores
+    description: Staging table that contains the relevance score between a movie and a tag.
+    columns:
+      - name: movie_id
+        tests:
+          - not_null
+      - name: tag_id
+        tests:
+          - not_null
+  
+  - name: stg_tag_lookup
+    description: Staging table that contains the tag name assigned to the tag_id reference in other tables such as stg_scores.
+    columns:
+      - name: tag_id
+        tests:
+          - unique
+          - not_null
+        tests:
+          - unique
+          - not_null
+  
+  - name: stg_tags
+    description: Staging tbale that contains the tag assigned to a movie by the user and the timestamp of this assignment.
+    columns:
+      - name: movie_id
+        tests:
+          - not_null
+      - name: user_id
+        tests:
+          - not_null
+      - name: tag_name
+        tests:
+          - not_null
+      - name: time_stamp
+        tests:
+          - not_null
+
+
+        
       
